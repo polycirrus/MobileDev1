@@ -22,13 +22,15 @@ class LengthConverterViewController: UIViewController, UIPickerViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        leftTextField.clearsOnBeginEditing = true
+        rightTextField.clearsOnBeginEditing = true
+        
         leftUnitPicker.selectRow(0, inComponent: 0, animated: false)
         rightUnitPicker.selectRow(0, inComponent: 0, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -49,11 +51,11 @@ class LengthConverterViewController: UIViewController, UIPickerViewDataSource, U
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == leftUnitPicker {
             lengthConverter.fromUnit = lengthUnits[row]
-            updateRightValue()
+            updateLeftValue()
         }
         if pickerView == rightUnitPicker {
             lengthConverter.toUnit = lengthUnits[row]
-            updateLeftValue()
+            updateRightValue()
         }
     }
     
@@ -68,31 +70,21 @@ class LengthConverterViewController: UIViewController, UIPickerViewDataSource, U
     private func updateLeftValue() {
         if let rightValue = Double(rightTextField.text!) {
             let newLeftValue = lengthConverter.reverseConvert(rightValue)
-            rightTextField.text = String(newLeftValue)
-        }
-        else {
-            rightTextField.text = "-'"
-        }
-    }
-    
-    private func updateRightValue() {
-        if let leftValue = Double(leftTextField.text!) {
-            let newRightValue = lengthConverter.convert(leftValue)
-            leftTextField.text = String(newRightValue)
+            leftTextField.text = String(newLeftValue)
         }
         else {
             leftTextField.text = "-'"
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func updateRightValue() {
+        if let leftValue = Double(leftTextField.text!) {
+            let newRightValue = lengthConverter.convert(leftValue)
+            rightTextField.text = String(newRightValue)
+        }
+        else {
+            rightTextField.text = "-'"
+        }
     }
-    */
 
 }

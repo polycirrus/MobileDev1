@@ -28,7 +28,7 @@ class LengthConverter {
     
     init() {
         fromUnit = LengthUnit.Metre
-        toUnit = LengthUnit.Foot
+        toUnit = LengthUnit.Metre
         
         conversionFactors = [
             LengthUnit.Foot: 0.3048,

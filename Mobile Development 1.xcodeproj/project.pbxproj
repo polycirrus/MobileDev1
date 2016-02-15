@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4479184F1C723A37003B320D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4479184E1C723A37003B320D /* WebViewController.swift */; };
+		447918511C723B62003B320D /* StudentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447918501C723B62003B320D /* StudentsViewController.swift */; };
 		44C26A831C71F7E1000B4716 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C26A821C71F7E1000B4716 /* AppDelegate.swift */; };
 		44C26A8A1C71F7E1000B4716 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44C26A881C71F7E1000B4716 /* Main.storyboard */; };
 		44C26A8C1C71F7E1000B4716 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44C26A8B1C71F7E1000B4716 /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4479184E1C723A37003B320D /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		447918501C723B62003B320D /* StudentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentsViewController.swift; sourceTree = "<group>"; };
 		44C26A7F1C71F7E1000B4716 /* Mobile Development 1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mobile Development 1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44C26A821C71F7E1000B4716 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44C26A891C71F7E1000B4716 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				44C26A8B1C71F7E1000B4716 /* Assets.xcassets */,
 				44C26A8D1C71F7E1000B4716 /* LaunchScreen.storyboard */,
 				44C26A901C71F7E1000B4716 /* Info.plist */,
+				4479184E1C723A37003B320D /* WebViewController.swift */,
+				447918501C723B62003B320D /* StudentsViewController.swift */,
 			);
 			path = "Mobile Development 1";
 			sourceTree = "<group>";
@@ -148,6 +154,8 @@
 				44C26A831C71F7E1000B4716 /* AppDelegate.swift in Sources */,
 				44F422441C71FE0000A7528F /* LengthConverter.swift in Sources */,
 				44F422411C71FC3500A7528F /* LengthConverterViewController.swift in Sources */,
+				447918511C723B62003B320D /* StudentsViewController.swift in Sources */,
+				4479184F1C723A37003B320D /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
