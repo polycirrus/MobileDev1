@@ -28,10 +28,18 @@ class StudentsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        cell.textLabel?.text = students[indexPath.row]
+        let cell = UITableViewCell(style: UITableViewCellStyle.Value2, reuseIdentifier: nil)
+        cell.textLabel?.textAlignment = NSTextAlignment.Left
+        
+        //cell.detailTextLabel?.text = String(indexPath.row)
+        //cell.textLabel?.numberOfLines = 0
+        //cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        //cell.textLabel?.text = students[indexPath.row]
+        
+        cell.textLabel?.text = String(indexPath.row + 1)
+        cell.detailTextLabel?.numberOfLines = 0
+        cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        cell.detailTextLabel?.text = students[indexPath.row]
         
         return cell
     }
