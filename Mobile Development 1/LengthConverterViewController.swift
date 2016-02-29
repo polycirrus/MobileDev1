@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LengthConverterViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class LengthConverterViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
     let lengthConverter = LengthConverter()
     let lengthUnits: [LengthUnit] = LengthUnit.values
@@ -51,7 +51,7 @@ class LengthConverterViewController: UIViewController, UIPickerViewDataSource, U
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == leftUnitPicker {
             lengthConverter.fromUnit = lengthUnits[row]
-            updateLeftValue()
+            updateRightValue()
         }
         if pickerView == rightUnitPicker {
             lengthConverter.toUnit = lengthUnits[row]
@@ -67,13 +67,18 @@ class LengthConverterViewController: UIViewController, UIPickerViewDataSource, U
         updateLeftValue()
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     private func updateLeftValue() {
         if let rightValue = Double(rightTextField.text!) {
             let newLeftValue = lengthConverter.reverseConvert(rightValue)
             leftTextField.text = String(newLeftValue)
         }
         else {
-            leftTextField.text = "-'"
+            leftTextField.text = ""
         }
     }
     
@@ -83,7 +88,7 @@ class LengthConverterViewController: UIViewController, UIPickerViewDataSource, U
             rightTextField.text = String(newRightValue)
         }
         else {
-            rightTextField.text = "-'"
+            rightTextField.text = ""
         }
     }
 
