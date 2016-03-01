@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10102" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10080"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="72" y="582"/>
         </scene>
-        <!--Converter-->
+        <!--Length-->
         <scene sceneID="t7x-gd-XMt">
             <objects>
                 <viewController id="ono-wd-vKl" customClass="LengthConverterViewController" customModule="Mobile_Development_1" customModuleProvider="target" sceneMemberID="viewController">
@@ -116,7 +116,7 @@
                             <constraint firstItem="1XV-ba-74z" firstAttribute="top" relation="lessThanOrEqual" secondItem="S3Q-OI-huh" secondAttribute="bottom" priority="250" constant="8" id="KeQ-l5-ATI"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Converter" image="first" selectedImage="first" id="yfT-Gw-Xkv"/>
+                    <tabBarItem key="tabBarItem" title="Length" image="first" selectedImage="first" id="yfT-Gw-Xkv"/>
                     <connections>
                         <outlet property="leftTextField" destination="xtK-Vw-I4e" id="Eez-9g-A4C"/>
                         <outlet property="leftUnitPicker" destination="i3I-2I-B1Z" id="gQO-Qr-tqp"/>
@@ -161,6 +161,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ORq-AC-fGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="885" y="480"/>
+        </scene>
+        <!--Currency-->
+        <scene sceneID="QKd-7I-DGU">
+            <objects>
+                <viewController id="vNT-Rh-fbA" customClass="CurrencyConverterViewController" customModule="Mobile_Development_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GUQ-wY-zT7"/>
+                        <viewControllerLayoutGuide type="bottom" id="EV6-Bg-ycf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HlJ-7y-cZO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Currency" image="second" id="DUE-0r-qJj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nro-tj-ZUv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="148" y="1372"/>
         </scene>
         <!--Students-->
         <scene sceneID="agi-9D-hh8">
