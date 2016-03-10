@@ -17,36 +17,57 @@ class CurrencyConverter {
     init() {
         Alamofire.request(.GET, "https://nbrb.by/Services/XmlExRates.aspx").responseString { responseString in
             
-            let resultString = responseString.result.value!
-            let data = SWXMLHash.parse(resultString)
-            do {
-                let r = try data.byKey("DailyExRates")
-                let r2 = try data.byKey("Currency")
-            }
-            catch {
+            guard responseString.result.isSuccess else {
                 return
             }
-            let root = data["Currency"]
-            let currencyIndexer = root["Currency"]
-            let currencyElems = currencyIndexer.all
-            //let currencyElems = SWXMLHash.parse(responseString.result.value!)["DailyExRates"]["Currency"].all
+            
+            guard let data = responseString.data else {
+                return
+            }
+            
+            let xmlElems = SWXMLHash.parse(data)
+            let currencyElems = xmlElems["DailyExRates"].children
             
             for currencyElem in currencyElems {
-                let name = String(currencyElem["Name"])
-                let code = String(currencyElem["CharCode"])
                 
-                guard let rate = Double(String(currencyElem["Rate"])) else {
-                    break
+                guard let name = currencyElem["Name"].element?.text else {
+                    continue
                 }
-                guard let scale = Double(String(currencyElem["Scale"])) else {
-                    break
+                guard let code = currencyElem["CharCode"].element?.text else {
+                    continue
+                }
+                
+                guard let rateString = currencyElem["Rate"].element?.text else {
+                    continue
+                }
+                guard let rate = Double(rateString) else {
+                    continue
+                }
+                
+                guard let scaleString = currencyElem["Scale"].element?.text else {
+                    continue
+                }
+                guard let scale = Double(scaleString) else {
+                    continue
                 }
                 
                 self.currencies.append(Currency(name: name, code: code, rate: rate / scale))
+                
             }
             
-            let a = 3
         }
+    }
+    
+    func ConvertTo(value: Double, currency: Currency) -> Double {
+        return value / currency.rate
+    }
+    
+    func ConvertFrom(value: Double, currency: Currency) -> Double {
+        return value * currency.rate
+    }
+    
+    func Convert(value: Double, from sourceCurrency: Currency, to destCurrency: Currency) -> Double {
+        return value * sourceCurrency.rate / destCurrency.rate
     }
     
 }
