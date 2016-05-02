@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -174,9 +174,52 @@
                     <view key="view" contentMode="scaleToFill" id="HlJ-7y-cZO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vhv-KV-wh0">
+                                <rect key="frame" x="20" y="20" width="518" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="onTextBoxEditingChanged:" destination="vNT-Rh-fbA" eventType="editingChanged" id="bd4-nG-UXi"/>
+                                    <outlet property="delegate" destination="vNT-Rh-fbA" id="zo8-yL-ZdC"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BYR" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8RF-eg-3l2">
+                                <rect key="frame" x="546" y="23" width="34" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="7zY-mI-bcq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Omf-ty-qng">
+                                <rect key="frame" x="20" y="58" width="560" height="493"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vNT-Rh-fbA" id="vkK-Ex-woP"/>
+                                    <outlet property="delegate" destination="vNT-Rh-fbA" id="JFm-F1-gG9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8RF-eg-3l2" firstAttribute="baseline" secondItem="Vhv-KV-wh0" secondAttribute="baseline" id="7I0-XC-oQo"/>
+                            <constraint firstItem="8RF-eg-3l2" firstAttribute="leading" secondItem="Vhv-KV-wh0" secondAttribute="trailing" constant="8" symbolic="YES" id="8Vv-PO-0Vb"/>
+                            <constraint firstItem="EV6-Bg-ycf" firstAttribute="top" secondItem="Omf-ty-qng" secondAttribute="bottom" id="AE9-cb-mCA"/>
+                            <constraint firstItem="Omf-ty-qng" firstAttribute="trailing" secondItem="HlJ-7y-cZO" secondAttribute="trailingMargin" id="LPL-kV-Jny"/>
+                            <constraint firstItem="Omf-ty-qng" firstAttribute="leading" secondItem="HlJ-7y-cZO" secondAttribute="leadingMargin" id="PLR-LX-2iI"/>
+                            <constraint firstItem="8RF-eg-3l2" firstAttribute="trailing" secondItem="HlJ-7y-cZO" secondAttribute="trailingMargin" id="YnU-gC-KH5"/>
+                            <constraint firstItem="Vhv-KV-wh0" firstAttribute="leading" secondItem="HlJ-7y-cZO" secondAttribute="leadingMargin" id="eXA-U0-Mqc"/>
+                            <constraint firstItem="Vhv-KV-wh0" firstAttribute="top" secondItem="GUQ-wY-zT7" secondAttribute="bottom" id="l0K-D7-gpP"/>
+                            <constraint firstItem="Omf-ty-qng" firstAttribute="top" secondItem="Vhv-KV-wh0" secondAttribute="bottom" constant="8" id="nEV-tM-OHH"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Currency" image="second" id="DUE-0r-qJj"/>
+                    <connections>
+                        <outlet property="tableView" destination="Omf-ty-qng" id="teC-J3-sDN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nro-tj-ZUv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
